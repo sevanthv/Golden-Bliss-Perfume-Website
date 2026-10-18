@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Bliss | Haute Parfumerie & Luxury Fragrances</title>
+    <meta name="description" content="Discover Golden Bliss Haute Parfumerie. Handcrafted luxury perfumes made with rare botanical extraits, regal oud, and velvety damask roses.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- ANNOUNCEMENT BAR                             -->
+    <!-- ============================================ -->
+    <div class="announcement-bar">
+        ✨ <strong>Complimentary Luxury Sample Set</strong> on all orders above ₹2,499 | Use Code: <strong>GOLDEN10</strong> for 10% OFF
+    </div>
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION BAR                               -->
+    <!-- ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <a href="#home">
+                <span class="logo-text">GOLDEN BLISS</span>
+                <span class="logo-sub">HAUTE PARFUMERIE</span>
+            </a>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#quiz">Scent Quiz</a></li>
+            <li><a href="#shop">Shop All</a></li>
+            <li><a href="#notes-guide">Scent Guide</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+                <div class="nav-actions">
+            <!-- Orders / Admin Portal Button -->
+            <button class="nav-icon-btn" onclick="openOrdersModal()" aria-label="View Placed Orders" title="View Placed Orders">
+                📦
+                <span class="badge-count orders-count-badge" id="navOrdersCount" style="display:none;">0</span>
+            </button>
+
+            <!-- Wishlist Button -->
+            <button class="nav-icon-btn" onclick="openWishlistDrawer()" aria-label="Open Wishlist" title="Wishlist">
+                ❤️
+                <span class="badge-count wishlist-count-badge" id="navWishlistCount" style="display:none;">0</span>
+            </button>
+
+            <!-- Cart Button -->
+            <button class="nav-icon-btn" onclick="openCartDrawer()" aria-label="Open Shopping Bag" title="Shopping Bag">
+                🛒
+                <span class="badge-count cart-count-badge" id="navCartCount" style="display:none;">0</span>
+            </button>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="hero" id="home">
+        <div class="hero-glow-orb"></div>
+        <div class="hero-content">
+            <span class="hero-tag">✦ Haute Parfumerie Collection ✦</span>
+            <h1>Unveil Your <span class="gold-gradient-text">Signature Scent</span></h1>
+            <p>
+                Crafted in Grasse and bottled in pure luxury. Experience rare extracts, 
+                14-hour longevity, and an unforgettable aura designed for timeless presence.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="#shop" class="btn-primary">Explore Collection</a>
+                <a href="#quiz" class="btn-secondary">Find Your Scent ✦</a>
+            </div>
+
+            <div class="hero-stats-row">
+                <div class="hero-stat-item">
+                    <h4>14+ hrs</h4>
+                    <p>Longevity Trail</p>
+                </div>
+                <div class="hero-stat-item">
+                    <h4>100%</h4>
+                    <p>Organic Alcohol</p>
+                </div>
+                <div class="hero-stat-item">
+                    <h4>4.9 ★</h4>
+                    <p>Customer Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FEATURED COLLECTION                          -->
+    <!-- ============================================ -->
+    <section class="featured-section" id="featured">
+        <div class="section-header">
+            <span class="section-tag">CURATED MASTERPIECES</span>
+            <h2>Spotlight Collection</h2>
+            <p>Our most cherished signature fragrances, celebrated worldwide for their captivating silage and exquisite craftsmanship.</p>
+        </div>
+
+        <div class="products-grid" id="featuredGrid">
+            <!-- Dynamic Injection from script.js -->
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- INTERACTIVE SCENT FINDER QUIZ                -->
+    <!-- ============================================ -->
+    <section class="quiz-section" id="quiz">
+        <div class="section-header">
+            <span class="section-tag">PERSONALIZED OLFACTORY MATCH</span>
+            <h2>Find Your Signature Scent</h2>
+            <p>Answer 3 quick sensory questions and let our Master Perfumer match you with your ideal olfactory identity.</p>
+        </div>
+
+        <div class="quiz-container-box">
+            <div id="quizStepProgress" class="section-tag" style="margin-bottom: 20px;">Question 1 of 3</div>
+            <div id="quizStepContainer">
+                <!-- Dynamic Quiz Steps -->
+            </div>
+            <div id="quizResultContainer" style="display:none;">
+                <!-- Dynamic Quiz Result -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SHOP CATALOG & FILTERS                       -->
+    <!-- ============================================ -->
+    <section class="shop-section" id="shop">
+        <div class="section-header">
+            <span class="section-tag">COMPLETE CATALOG</span>
+            <h2>Explore All Fragrances</h2>
+            <p>Immerse yourself in our full boutique of artisanal extraits, eau de parfums, and private reserve collections.</p>
+        </div>
+
+        <div class="shop-controls-bar">
+            <!-- Gender Selector Pills -->
+            <div class="gender-pills-row">
+                <button class="gender-pill-btn active" data-gender="all">All Fragrances</button>
+                <button class="gender-pill-btn" data-gender="women">Women</button>
+                <button class="gender-pill-btn" data-gender="men">Men</button>
+                <button class="gender-pill-btn" data-gender="unisex">Unisex</button>
+            </div>
+
+            <!-- Filter Inputs Row -->
+            <div class="filter-inputs-row">
+                <div class="search-input-wrap">
+                    <input type="text" id="shopSearchInput" placeholder="Search by name, notes, ingredients...">
+                    <span class="search-icon-symbol">🔍</span>
+                </div>
+
+                <select id="familyFilterSelect" class="filter-select" aria-label="Filter by Fragrance Family">
+                    <option value="all">All Scent Families</option>
+                    <option value="floral">Floral Bouquet</option>
+                    <option value="woody">Woody & Oud</option>
+                    <option value="fresh">Fresh & Aquatic</option>
+                    <option value="oriental">Oriental & Amber</option>
+                </select>
+
+                <select id="priceFilterSelect" class="filter-select" aria-label="Filter by Price Range">
+                    <option value="all">All Price Ranges</option>
+                    <option value="under2000">Under ₹2,000</option>
+                    <option value="2000-3000">₹2,000 – ₹3,000</option>
+                    <option value="above3000">Above ₹3,000</option>
+                </select>
+
+                <select id="sortFilterSelect" class="filter-select" aria-label="Sort Catalog">
+                    <option value="featured">Sort: Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+
+                <button id="resetFiltersBtn" class="reset-filter-btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="shop-status-row">
+            <span id="shopResultCount">Showing 8 fragrances</span>
+        </div>
+
+        <div class="products-grid" id="shopProductsGrid">
+            <!-- Dynamic Injection from script.js -->
+        </div>
+
+        <div class="no-results-box" id="shopNoResults">
+            <p>No fragrances match your selected filters. Try broadening your search or resetting filters.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SCENT PYRAMID GUIDE                          -->
+    <!-- ============================================ -->
+    <section class="notes-guide-section" id="notes-guide">
+        <div class="section-header">
+            <span class="section-tag">THE ART OF PERFUMERY</span>
+            <h2>The Olfactory Pyramid</h2>
+            <p>A luxury perfume unfolds over time like a musical composition. Learn how each tier reveals its character.</p>
+        </div>
+
+        <div class="pyramid-grid">
+            <div class="pyramid-card">
+                <div class="pyramid-icon">🍋</div>
+                <span class="pyramid-duration">First 15 - 30 Minutes</span>
+                <h3>Top Notes</h3>
+                <p>The luminous first impression that greets your senses. Typically vibrant notes of Italian Bergamot, Pink Pepper, Citruses, and Crisp Pear.</p>
+            </div>
+
+            <div class="pyramid-card">
+                <div class="pyramid-icon">🌹</div>
+                <span class="pyramid-duration">2 - 6 Hours</span>
+                <h3>Heart Notes</h3>
+                <p>The true soul and character of the fragrance that emerges as top notes fade. Features Damask Rose, French Vanilla, Peony, and Royal Jasmine.</p>
+            </div>
+
+            <div class="pyramid-card">
+                <div class="pyramid-icon">🌲</div>
+                <span class="pyramid-duration">8 - 14+ Hours</span>
+                <h3>Base Notes</h3>
+                <p>The enduring foundation that lingers on your skin and clothes for days. Rich Cambodian Oud, Warm Golden Amber, Sandalwood, and Tonka Bean.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT SECTION                                -->
+    <!-- ============================================ -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-img-frame">
+                <img src="images/perfume2.jpg" alt="Golden Bliss Craftsmanship">
+            </div>
+
+            <div class="about-content">
+                <span class="section-tag">OUR HERITAGE</span>
+                <h2>Bottling Timeless Elegance Since 2026</h2>
+                <p>
+                    At Golden Bliss, we believe a fragrance is your invisible signature — a reflection 
+                    of confidence, elegance, and unforgettable memories.
+                </p>
+                <p>
+                    Every bottle is handcrafted with sustainably harvested botanicals, distilled in 
+                    historic French copper alembics, and aged to perfection for sublime depth and projection.
+                </p>
+
+                <div class="about-badges-grid">
+                    <div class="about-badge-item"><span>🌿</span> 100% Cruelty-Free & Vegan</div>
+                    <div class="about-badge-item"><span>💎</span> Rare Botanical Extraits</div>
+                    <div class="about-badge-item"><span>✨</span> Hand-Poured French Flacons</div>
+                    <div class="about-badge-item"><span>🚚</span> Free Express Luxury Shipping</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CUSTOMER TESTIMONIALS                        -->
+    <!-- ============================================ -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-header">
+            <span class="section-tag">VERIFIED ENTHUSIASTS</span>
+            <h2>Loved by Connoisseurs</h2>
+            <p>Read what our discerning patrons across the world have to say about their signature fragrances.</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    "Midnight Rose is simply magnificent. I wore it to an evening gala and received compliments all night long. The projection is powerful yet so refined."
+                </p>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-info">
+                        <h5>Aarav Sharma</h5>
+                        <span>Verified Buyer • Mumbai</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    "Royal Oud is the benchmark of luxury. It lasts easily 14 hours on my coat, and the dry-down of amber and sandalwood is pure bliss."
+                </p>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">P</div>
+                    <div class="reviewer-info">
+                        <h5>Priya Nair</h5>
+                        <span>Verified Buyer • Bangalore</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    "Ocean Breeze is the cleanest, most invigorating summer fragrance I've ever owned. The packaging, atomiser, and bottle quality are top-tier."
+                </p>
+                <div class="reviewer-meta">
+                    <div class="reviewer-avatar">R</div>
+                    <div class="reviewer-info">
+                        <h5>Rohan Kapoor</h5>
+                        <span>Verified Buyer • New Delhi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CHECKOUT SECTION                             -->
+    <!-- ============================================ -->
+    <section class="checkout-section" id="checkout">
+        <div class="section-header">
+            <span class="section-tag">FAST & SECURE DISPATCH</span>
+            <h2>Express Luxury Checkout</h2>
+            <p>Complete your shipping and payment details to receive your handcrafted flacons.</p>
+        </div>
+
+        <div class="checkout-grid-container">
+            <!-- Left: Form Panel -->
+            <div class="checkout-form-panel">
+                <h3 class="panel-title">1. Delivery Address</h3>
+                
+                <form id="checkoutForm">
+                    <div class="form-group-single">
+                        <label for="checkoutFullName">Full Name *</label>
+                        <input type="text" id="checkoutFullName" class="form-input" placeholder="e.g. Ananya Roy" required>
+                    </div>
+
+                    <div class="form-group-row">
+                        <div>
+                            <label for="checkoutEmail">Email Address *</label>
+                            <input type="email" id="checkoutEmail" class="form-input" placeholder="ananya@example.com" required>
+                        </div>
+                        <div>
+                            <label for="checkoutPhone">Mobile Number *</label>
+                            <input type="tel" id="checkoutPhone" class="form-input" placeholder="10-digit mobile number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-single">
+                        <label for="checkoutAddress">Street Address / House No. *</label>
+                        <textarea id="checkoutAddress" class="form-textarea" rows="3" placeholder="Building, Street, Landmark" required></textarea>
+                    </div>
+
+                    <div class="form-group-row">
+                        <div>
+                            <label for="checkoutCity">City *</label>
+                            <input type="text" id="checkoutCity" class="form-input" placeholder="e.g. Bengaluru" required>
+                        </div>
+                        <div>
+                            <label for="checkoutState">State *</label>
+                            <input type="text" id="checkoutState" class="form-input" placeholder="e.g. Karnataka" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-single">
+                        <label for="checkoutPincode">Postal PIN Code *</label>
+                        <input type="text" id="checkoutPincode" class="form-input" placeholder="6-digit PIN code" required>
+                    </div>
+
+                    <h3 class="panel-title" style="margin-top: 40px;">2. Payment Method</h3>
+                    <div class="payment-methods-box">
+                        <label class="payment-radio-card">
+                            <input type="radio" name="checkoutPayment" value="cod" checked>
+                            <div class="payment-radio-info">
+                                <strong>💵 Cash on Delivery (COD)</strong>
+                                <small>Pay with cash or digital payment at doorstep upon delivery.</small>
+                            </div>
+                        </label>
+
+                        <label class="payment-radio-card">
+                            <input type="radio" name="checkoutPayment" value="upi">
+                            <div class="payment-radio-info">
+                                <strong>📱 UPI Instant Pay (Google Pay / PhonePe / Paytm)</strong>
+                                <small>Scan QR code or approve via UPI application.</small>
+                            </div>
+                        </label>
+
+                        <label class="payment-radio-card">
+                            <input type="radio" name="checkoutPayment" value="card">
+                            <div class="payment-radio-info">
+                                <strong>💳 Credit / Debit Card</strong>
+                                <small>Visa, Mastercard, RuPay, Amex encrypted processing.</small>
+                            </div>
+                        </label>
+
+                        <div id="cardPaymentDetails" style="display:none; margin-top: 15px; padding: 15px; background: #111116; border-radius: var(--radius-md);">
+                            <div class="form-group-single">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" class="form-input" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+                            </div>
+                            <div class="form-group-row">
+                                <div>
+                                    <label for="cardExpiry">Expiry (MM/YY)</label>
+                                    <input type="text" id="cardExpiry" class="form-input" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div>
+                                    <label for="cardCvv">CVV</label>
+                                    <input type="password" id="cardCvv" class="form-input" placeholder="123" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right: Order Summary Panel -->
+            <div class="checkout-summary-panel">
+                <h3 class="panel-title">Order Summary</h3>
+                <div class="checkout-items-list" id="checkoutItemsList">
+                    <!-- Dynamic Cart Items Preview -->
+                </div>
+
+                <div class="summary-calc-rows">
+                    <div class="calc-row">
+                        <span>Bag Subtotal</span>
+                        <strong id="checkoutSubtotal">₹0</strong>
+                    </div>
+                    <div class="calc-row discount" id="checkoutDiscountRow" style="display:none;">
+                        <span>Coupon Savings</span>
+                        <strong id="checkoutDiscount">-₹0</strong>
+                    </div>
+                    <div class="calc-row">
+                        <span>Luxury Delivery</span>
+                        <strong id="checkoutShipping">FREE</strong>
+                    </div>
+                    <div class="calc-row total-row">
+                        <span>Grand Total</span>
+                        <strong id="checkoutTotal">₹0</strong>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="placeOrderBtn" style="width: 100%;">
+                    🔒 Place Your Order Now
+                </button>
+
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.78rem; margin-top: 15px;">
+                    🛡️ 256-Bit SSL Encrypted & Protected Checkout
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT SECTION                              -->
+    <!-- ============================================ -->
+    <section class="contact-section" id="contact">
+        <div class="contact-grid">
+            <div class="contact-info-col">
+                <span class="section-tag">FRAGRANCE CONCIERGE</span>
+                <h2>Let Us Assist You</h2>
+                <p>Have questions about perfume notes, custom gifting sets, or bulk corporate orders? Our master perfumers are here to assist.</p>
+
+                <div class="contact-item-row">
+                    <span>📍</span>
+                    <div>
+                        <strong>Boutique Atelier</strong>
+                        <p>Golden Bliss Parfumerie, UB City, Vittal Mallya Road, Bengaluru 560001</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-row">
+                    <span>📞</span>
+                    <div>
+                        <strong>Concierge Helpline</strong>
+                        <p>+91 (080) 4920-8800 (Mon - Sat, 10am - 8pm)</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-row">
+                    <span>✉️</span>
+                    <div>
+                        <strong>Email Enquiries</strong>
+                        <p>concierge@goldenbliss.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-col">
+                <form id="contactForm" class="checkout-form-panel">
+                    <h3 class="panel-title">Send a Message</h3>
+                    <div class="form-group-single">
+                        <label for="contactName">Your Name</label>
+                        <input type="text" id="contactName" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group-single">
+                        <label for="contactEmail">Your Email</label>
+                        <input type="email" id="contactEmail" class="form-input" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group-single">
+                        <label for="contactMessage">Your Message / Inquiry</label>
+                        <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="How may we assist your fragrance journey?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%;">
+                        ✦ Send Message to Concierge
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <div class="footer-top-grid">
+            <div class="footer-col">
+                <span class="logo-text">GOLDEN BLISS</span>
+                <span class="logo-sub">HAUTE PARFUMERIE</span>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 15px; line-height: 1.7;">
+                    Handcrafted luxury fragrances created with timeless distinction, rare extracts, and French perfumery mastery.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Collections</h4>
+                <ul>
+                    <li><a href="#shop">Floral Fragrances</a></li>
+                    <li><a href="#shop">Oud & Woods</a></li>
+                    <li><a href="#shop">Aquatic & Citrus</a></li>
+                    <li><a href="#shop">Oriental & Amber</a></li>
+                    <li><a href="#shop">Discovery Gift Sets</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#contact">Order Tracking</a></li>
+                    <li><a href="#contact">Authenticity Guarantee</a></li>
+                    <li><a href="#contact">Shipping & Returns</a></li>
+                    <li><a href="#quiz">Fragrance Consultation</a></li>
+                    <li><a href="#notes-guide">Scent Longevity Guide</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>VIP Privilege Club</h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 10px;">
+                    Subscribe to receive private preview access to limited edition flacons and 10% off your next purchase.
+                </p>
+                <form id="newsletterForm" class="newsletter-form-box">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>© 2026 Golden Bliss Haute Parfumerie. All Rights Reserved.</p>
+            <div style="display: flex; gap: 20px;">
+                <a href="#about">Privacy Policy</a>
+                <a href="#about">Terms of Service</a>
+                <a href="#about">Sustainability</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- SLIDE-OUT CART DRAWER                        -->
+    <!-- ============================================ -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <div class="slide-drawer" id="cartDrawer" aria-label="Shopping Bag Drawer">
+        <div class="drawer-header">
+            <h3>Your Shopping Bag</h3>
+            <button class="drawer-close-btn" onclick="closeCartDrawer()" aria-label="Close Bag">✕</button>
+        </div>
+
+        <div class="free-shipping-bar-container">
+            <div id="freeShippingText">Add ₹500 more for FREE Delivery</div>
+            <div class="progress-track">
+                <div class="progress-fill" id="freeShippingProgressBar"></div>
+            </div>
+        </div>
+
+        <div class="drawer-body" id="cartDrawerItems">
+            <!-- Dynamic Cart Items from cart.js -->
+        </div>
+
+        <div class="drawer-empty-state" id="cartDrawerEmpty" style="display:none;">
+            <div class="drawer-empty-icon">🛍️</div>
+            <h4>Your Bag is Empty</h4>
+            <p>Discover our spotlight collection to find your next signature scent.</p>
+            <button class="btn-primary" onclick="closeCartDrawer(); window.location.href='#shop';">
+                Explore Fragrances
+            </button>
+        </div>
+
+        <div class="drawer-footer" id="cartDrawerFooter">
+            <div class="promo-input-box">
+                <input type="text" id="cartPromoInput" placeholder="PROMO CODE (e.g. GOLDEN10)">
+                <button onclick="applyPromoCode(document.getElementById('cartPromoInput').value)">Apply</button>
+            </div>
+
+            <div id="activePromoBadge" class="active-promo-badge" style="display:none;"></div>
+
+            <div class="summary-calc-rows" style="margin-bottom: 15px;">
+                <div class="calc-row">
+                    <span>Subtotal</span>
+                    <strong id="cartDrawerSubtotal">₹0</strong>
+                </div>
+                <div class="calc-row discount" id="cartDrawerDiscountRow" style="display:none;">
+                    <span>Discount</span>
+                    <strong id="cartDrawerDiscount">-₹0</strong>
+                </div>
+                <div class="calc-row">
+                    <span>Delivery</span>
+                    <strong id="cartDrawerShipping">FREE</strong>
+                </div>
+                <div class="calc-row total-row">
+                    <span>Total</span>
+                    <strong id="cartDrawerTotal">₹0</strong>
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="closeCartDrawer(); window.location.href='#checkout';" style="width: 100%;">
+                Proceed to Checkout 🔒
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SLIDE-OUT WISHLIST DRAWER                    -->
+    <!-- ============================================ -->
+    <div class="slide-drawer" id="wishlistDrawer" aria-label="Wishlist Drawer">
+        <div class="drawer-header">
+            <h3>Saved Favorites ❤️</h3>
+            <button class="drawer-close-btn" onclick="closeWishlistDrawer()" aria-label="Close Wishlist">✕</button>
+        </div>
+
+        <div class="drawer-body" id="wishlistDrawerItems">
+            <!-- Dynamic Wishlist Items from wishlist.js -->
+        </div>
+
+        <div class="drawer-empty-state" id="wishlistDrawerEmpty" style="display:none;">
+            <div class="drawer-empty-icon">🤍</div>
+            <h4>Your Wishlist is Empty</h4>
+            <p>Click the heart icon on any perfume to save it for later.</p>
+            <button class="btn-primary" onclick="closeWishlistDrawer(); window.location.href='#shop';">
+                Browse Collection
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- QUICK VIEW / PRODUCT DETAILS MODAL           -->
+    <!-- ============================================ -->
+    <div class="modal-overlay" id="quickViewModal" aria-label="Product Details Modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="closeQuickViewBtn">✕</button>
+
+            <div class="quickview-layout">
+                <div class="quickview-img-frame">
+                    <img id="modalProductImg" src="images/perfume1.jpg" alt="Perfume Preview">
+                </div>
+
+                <div class="quickview-info-pane">
+                    <span class="product-card-badge" id="modalProductBadge" style="position:static; display:inline-block; margin-bottom: 12px;">Best Seller</span>
+                    <span class="product-family" id="modalProductFamily" style="display:block; margin-bottom: 6px;">FLORAL • WOMEN</span>
+                    <h2 id="modalProductTitle">Midnight Rose</h2>
+                    <p class="product-sub" id="modalProductSubtitle">Haute Parfumerie • Eau de Parfum</p>
+
+                    <div class="quickview-rating-row" id="modalProductRating">
+                        ★★★★★ <span>(142 reviews)</span>
+                    </div>
+
+                    <div class="quickview-price-large" id="modalProductPrice">₹2,499</div>
+                    <p class="quickview-desc" id="modalProductDesc"></p>
+
+                    <!-- Bottle Sizes -->
+                    <label style="font-size: 0.8rem; font-weight: 700; color: var(--gold-light); display:block; margin-bottom: 8px; letter-spacing: 1px;">
+                        SELECT BOTTLE SIZE:
+                    </label>
+                    <div class="modal-size-pills-row" id="modalSizePills">
+                        <!-- Dynamic Size Pills -->
+                    </div>
+
+                    <!-- Scent Pyramid Tier Breakdown -->
+                    <div class="notes-pyramid-container">
+                        <div class="note-tier-row">
+                            <span class="tier-label">Top Notes:</span>
+                            <div class="note-tags-wrap" id="modalTopNotes"></div>
+                        </div>
+                        <div class="note-tier-row">
+                            <span class="tier-label">Heart Notes:</span>
+                            <div class="note-tags-wrap" id="modalHeartNotes"></div>
+                        </div>
+                        <div class="note-tier-row">
+                            <span class="tier-label">Base Notes:</span>
+                            <div class="note-tags-wrap" id="modalBaseNotes"></div>
+                        </div>
+                    </div>
+
+                    <!-- Longevity Badges -->
+                    <div style="display: flex; gap: 15px; margin-bottom: 25px; font-size: 0.82rem; color: var(--text-secondary);">
+                        <div>⏱️ Longevity: <strong id="modalLongevity" style="color:var(--gold-primary);">10-12 Hrs</strong></div>
+                        <div>💨 Sillage: <strong id="modalSillage" style="color:var(--gold-primary);">Strong</strong></div>
+                    </div>
+
+                    <!-- Quantity & Add to Cart -->
+                    <div class="quickview-cta-row">
+                        <div class="modal-qty-box">
+                            <button onclick="changeModalQty(-1)">−</button>
+                            <span id="modalQtyVal">1</span>
+                            <button onclick="changeModalQty(1)">+</button>
+                        </div>
+
+                        <button class="btn-primary" onclick="addModalToCart()" style="flex-grow: 1;">
+                            🛍️ Add to Bag
+                        </button>
+                        
+                        <button class="btn-secondary" id="modalWishlistBtn" style="padding: 14px 20px;">
+                            ♡
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ORDER CONFIRMATION INVOICE MODAL             -->
+    <!-- ============================================ -->
+    <div class="modal-overlay" id="orderConfirmationModal" aria-label="Order Receipt">
+        <div class="modal-card invoice-card">
+            <div class="invoice-header-icon">✓</div>
+            <span class="section-tag">OFFICIAL INVOICE & CONFIRMATION</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 8px;">Order Confirmed!</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                Thank you for choosing Golden Bliss. Your flacons are being carefully prepared in our climate-controlled vault.
+            </p>
+
+            <div class="invoice-details-box">
+                <div class="conf-meta-row">
+                    <span>Order Reference ID:</span>
+                    <strong id="confOrderId" style="font-size: 1.1rem; color: var(--gold-primary);">GB-000000</strong>
+                </div>
+                <div class="conf-meta-row">
+                    <span>Order Date & Time:</span>
+                    <strong id="confOrderDate">19 August 2026</strong>
+                </div>
+                <div class="conf-meta-row">
+                    <span>Customer Name:</span>
+                    <strong id="confCustomerName"></strong>
+                </div>
+                <div class="conf-meta-row">
+                    <span>Delivery Address:</span>
+                    <strong id="confCustomerAddress" style="text-align: right; max-width: 60%;"></strong>
+                </div>
+                <div class="conf-meta-row">
+                    <span>Payment Method:</span>
+                    <strong id="confPaymentMethod">COD</strong>
+                </div>
+
+                <div class="conf-items-list" id="confItemsList"></div>
+
+                <div class="calc-row" style="margin-top: 10px;">
+                    <span>Subtotal</span>
+                    <strong id="confSubtotal">₹0</strong>
+                </div>
+                <div class="calc-row discount" id="confDiscountRow" style="display:none;">
+                    <span>Discount</span>
+                    <strong id="confDiscount">-₹0</strong>
+                </div>
+                <div class="calc-row">
+                    <span>Shipping</span>
+                    <strong id="confShipping">FREE</strong>
+                </div>
+                <div class="calc-row total-row" style="margin-top: 10px; padding-top: 10px;">
+                    <span>Total Paid</span>
+                    <strong id="confTotal">₹0</strong>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn-primary" onclick="window.print()">
+                    🖨️ Print Invoice Receipt
+                </button>
+                <button class="btn-secondary" onclick="closeOrderConfirmation()">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SIMULATED UPI QR MODAL                       -->
+    <!-- ============================================ -->
+    <div class="modal-overlay" id="upiSimModal" aria-label="UPI Payment">
+        <div class="modal-card upi-card">
+            <button class="modal-close-btn" onclick="closeUpiModal()">✕</button>
+            <span class="section-tag">BHIM UPI INSTANT PAY</span>
+            <h3>Scan & Pay</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
+                Scan QR with Google Pay, PhonePe, Paytm, or BHIM
+            </p>
+
+            <div class="qr-frame">
+                <!-- High-quality SVG QR simulation -->
+                <svg viewBox="0 0 100 100" width="180" height="180" style="display:block; margin:auto;">
+                    <rect width="100" height="100" fill="#fff" />
+                    <!-- Top-Left Corner -->
+                    <rect x="10" y="10" width="25" height="25" fill="#000"/>
+                    <rect x="15" y="15" width="15" height="15" fill="#fff"/>
+                    <rect x="18" y="18" width="9" height="9" fill="#000"/>
+                    <!-- Top-Right Corner -->
+                    <rect x="65" y="10" width="25" height="25" fill="#000"/>
+                    <rect x="70" y="15" width="15" height="15" fill="#fff"/>
+                    <rect x="73" y="18" width="9" height="9" fill="#000"/>
+                    <!-- Bottom-Left Corner -->
+                    <rect x="10" y="65" width="25" height="25" fill="#000"/>
+                    <rect x="15" y="70" width="15" height="15" fill="#fff"/>
+                    <rect x="18" y="73" width="9" height="9" fill="#000"/>
+                    <!-- Pattern Elements -->
+                    <rect x="42" y="12" width="6" height="6" fill="#D4AF37"/>
+                    <rect x="52" y="18" width="6" height="6" fill="#000"/>
+                    <rect x="42" y="42" width="16" height="16" fill="#D4AF37"/>
+                    <rect x="12" y="45" width="6" height="6" fill="#000"/>
+                    <rect x="25" y="48" width="6" height="6" fill="#000"/>
+                    <rect x="65" y="45" width="8" height="8" fill="#000"/>
+                    <rect x="78" y="55" width="6" height="6" fill="#000"/>
+                    <rect x="45" y="68" width="8" height="8" fill="#000"/>
+                    <rect x="65" y="75" width="10" height="10" fill="#D4AF37"/>
+                    <rect x="80" y="80" width="8" height="8" fill="#000"/>
+                </svg>
+            </div>
+
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--gold-primary);" id="upiModalAmount">₹0</div>
+            <div class="upi-timer-badge">Session Expires In: <span id="upiTimerVal">05:00</span></div>
+
+            <button class="btn-primary" onclick="confirmSimulatedUpiPayment()" style="width: 100%;">
+                ✓ I Have Completed the UPI Payment
+            </button>
+        </div>
+    </div>
+
+    
+    <!-- ============================================ -->
+    <!-- ORDERS & MANAGEMENT DASHBOARD MODAL          -->
+    <!-- ============================================ -->
+    <div class="modal-overlay" id="ordersDashboardModal" aria-label="Orders Dashboard">
+        <div class="modal-card orders-modal-card">
+            <button class="modal-close-btn" onclick="closeOrdersModal()">✕</button>
+            
+            <div class="orders-modal-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 1.8rem;">📦</span>
+                    <div>
+                        <span class="section-tag" style="margin: 0;">STORE ORDERS & CLIENT HISTORY</span>
+                        <h2 style="font-size: 1.8rem; margin-top: 4px;">Placed Orders Dashboard</h2>
+                    </div>
+                </div>
+
+                <div class="orders-header-actions">
+                    <button class="btn-secondary" onclick="exportOrdersToCSV()" style="padding: 10px 20px; font-size: 0.85rem;">
+                        📥 Export Orders (CSV / Excel)
+                    </button>
+                    <button class="btn-secondary" onclick="clearAllOrders()" style="padding: 10px 18px; font-size: 0.85rem; border-color: #E74C3C; color: #E74C3C;">
+                        🗑️ Clear History
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="orders-search-bar">
+                <div class="search-input-wrap" style="max-width: none;">
+                    <input type="text" id="orderSearchInput" placeholder="Search orders by Order ID (e.g. GB-123456), Customer Name, or Phone..." oninput="filterOrdersList()">
+                    <span class="search-icon-symbol">🔍</span>
+                </div>
+            </div>
+
+            <!-- Orders Container -->
+            <div class="orders-list-body" id="ordersListContainer">
+                <!-- Dynamically rendered orders -->
+            </div>
+
+            <div class="orders-empty-state" id="ordersEmptyState" style="display: none;">
+                <div style="font-size: 3.5rem; margin-bottom: 15px;">📦</div>
+                <h3>No Orders Placed Yet</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    When customers or you place an order through Checkout, they will appear right here with full customer details, invoice records, and dispatch statuses.
+                </p>
+                <button class="btn-primary" onclick="closeOrdersModal(); window.location.href='#shop';">
+                    Explore Shop & Place a Test Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LIBRARIES & MODULES -->
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
